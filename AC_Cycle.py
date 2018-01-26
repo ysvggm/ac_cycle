@@ -47,13 +47,10 @@ def Compare():
 
 	Log("Create TEMP File for Comparison!! (SYS.new)")
 
-	cmd1 = "lspci -vx | grep -a5 0073"
+	cmd1 = "lspci -vx | grep -a5 \"Sky Lake-E\""
 	ret1 = subprocess.check_output(cmd1, shell=True, universal_newlines=True)
-	cmd2 = "./bam_rw_mem --RegBar=0xcfffc000 --TestType=info"
-	ret2 = subprocess.check_output(cmd2, shell=True, universal_newlines=True)
 	f = open("SYS.new","w")
 	f.write(ret1)
-	f.write(ret2)
 	f.close()
 
 
@@ -172,14 +169,11 @@ def Init():
 	f.write(str(args.cycle))
 	f.close()
 
-	cmd1 = "lspci -vx | grep -a5 0073"
+	cmd1 = "lspci -vx | grep -a5 \"Sky Lake-E\""
 	ret1 = subprocess.check_output(cmd1, shell=True, universal_newlines=True)
-	cmd2 = "./bam_rw_mem --RegBar=0xcfffc000 --TestType=info"
-	ret2 = subprocess.check_output(cmd2, shell=True, universal_newlines=True)
 	
 	f = open("SYS.txt","w")
 	f.write(ret1)
-	f.write(ret2)
 	f.close()
 
 	Log("Test Initialization Finish!!")
