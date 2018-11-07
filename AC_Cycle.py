@@ -47,7 +47,7 @@ def Compare():
 
 	Log("Create TEMP File for Comparison!! (SYS.new)")
 
-	cmd1 = "lspci -vx | grep -a5 \"Sky Lake-E\""
+	cmd1 = "lspci -vx | grep -a5 \"PCI bridge: Intel Corporation Device\""
 	ret1 = subprocess.check_output(cmd1, shell=True, universal_newlines=True)
 	f = open("SYS.new","w")
 	f.write(ret1)
@@ -169,7 +169,7 @@ def Init():
 	f.write(str(args.cycle))
 	f.close()
 
-	cmd1 = "lspci -vx | grep -a5 \"Sky Lake-E\""
+	cmd1 = "lspci -vx | grep -a5 \"PCI bridge: Intel Corporation Device\""
 	ret1 = subprocess.check_output(cmd1, shell=True, universal_newlines=True)
 	
 	f = open("SYS.txt","w")
